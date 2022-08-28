@@ -1,0 +1,48 @@
+* {
+  font-family: luminari, arial; }
+
+.header, .instructions, .contenders {
+  text-align: center; }
+
+.rps {
+  display: flex;
+  flex-direction: column; }
+
+.rps-choices {
+  padding: 0 20vw;
+  display: flex;
+  justify-content: space-around; }
+
+.icon-background {
+  border: transparent;
+  background-color: white;
+  transition: 0.3s; }
+
+.icon-background:hover {
+  background-color: lightgrey; }
+
+.main-icons {
+  max-width: 20vw; }
+
+.rps-selections {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5vw; }
+
+.side {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.selection {
+  width: 20vw;
+  height: 20vw;
+  border: 2px solid black;
+  border-radius: 10px; }
+
+.score {
+  display: flex;
+  justify-content: space-between; }
+
+/*# sourceMappingURL=style.css.map */

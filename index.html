@@ -5,19 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="css/style.css">
     <script src="javascript/rps.js"></script>
 </head>
 <body>
-    <div class="header">
-        <h1>Rock Paper Scissors</h1>
-    </div>
-    <div>
+    <h1 class="header">Rock Paper Scissors</h1>
+    <div class="rps">
         <!--Rock Paper Scissors Game-->
         <!--Instructions-->
-        <!--Blank icons waiting for player selection and computer selection (rapidly changing icons)-->
+        <div class="instructions">
+            <p>
+                You know the rules.
+            </p>
+        </div>
         <!--Icons for Rock Paper Scissors-->
-        <!--Player Score | Computer Score-->
-        <!--Reset Button-->
+        <div class="rps-choices">
+            <button class="icon-background">
+                <img class="main-icons" id="rock" src="images/rock.png">
+            </button>
+            <button class="icon-background">
+                <img class="main-icons" id="paper" src="images/paper.png">
+            </button>
+            <button class="icon-background">
+                <img class="main-icons" id="scissors" src="images/scissors.png">
+            </button>
+        </div>
+        <!--Blank icons waiting for player selection and computer selection (rapidly changing icons)-->
+        <h2 class="contenders">
+            The contenders: 
+        </h2>
+        <div class="rps-selections">
+            <div class="side">
+                <div class="selection">
+
+                </div>
+                <div class="score">
+                    <h3>Player Score:</h3>
+                    <h3 id="player-score">0</h3>
+                </div>
+            </div>
+            <h3>
+                vs
+            </h3>
+            <div class="side">
+                <div class="selection">
+
+                </div>
+                <div class="score">
+                    <h3>Computer Score:</h3>
+                    <h3 id="computer-score">0</h3>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
