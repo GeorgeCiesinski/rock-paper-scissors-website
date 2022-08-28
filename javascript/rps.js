@@ -1,6 +1,6 @@
 // Rock Paper Scissors
 
-// getComputerChoice - return rock, paper or scissors
+// Get the computer choice - return rock, paper or scissors
 function getComputerChoice() {
     // Select random number between 1-3
     randNum = Math.floor((Math.random() * 3) + 1);
@@ -14,6 +14,8 @@ function getComputerChoice() {
     return computerSelection;
 }
 
+
+// Output computer choice (temp)
 console.log(getComputerChoice());
 
 
