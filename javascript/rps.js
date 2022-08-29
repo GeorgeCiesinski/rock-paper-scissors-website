@@ -1,38 +1,67 @@
 // Rock Paper Scissors
 
-// When window loads, add event listeners to player choices
-window.onload=function(){
-    document.getElementById("rock").addEventListener("click", makePlayerSelection.bind(this, "rock"));
-    document.getElementById("paper").addEventListener("click", makePlayerSelection.bind(this, "paper"));
-    document.getElementById("scissors").addEventListener("click", makePlayerSelection.bind(this, "scissors"));    
-}
+let roundOver = false;
+let currentRound = 1;  // Start from round 1
+
+// Get Buttons
+let btnRock = document.getElementById("rock");
+let btnPaper = document.getElementById("paper");
+let btnScissors = document.getElementById("scissors"); 
+
+// Add event listeners
+btnRock.addEventListener("click", makePlayerSelection.bind(this, "rock"));
+btnPaper.addEventListener("click", makePlayerSelection.bind(this, "paper"));
+btnScissors.addEventListener("click", makePlayerSelection.bind(this, "scissors"));   
 
 // Get the computer choice - return rock, paper or scissors
 function getComputerChoice() {
-    // Select random number between 1-3
     randNum = Math.floor((Math.random() * 3) + 1);
-    // Pick selection depending on random number
-    let computerSelection = (
+    let computerChoice = (
         randNum == 1 ? "rock" : 
         randNum == 2 ? "paper" : 
         randNum == 3 ? "scissors" : 
         null
     );
-    return computerSelection;
+    return computerChoice;
 }
 
 // Makes player selection
-function makePlayerSelection(choice) {
-    console.log(choice);
+function makePlayerSelection(playerChoice) {
+    if (!roundOver) {
+        computerChoice = getComputerChoice();
+        checkWinner(playerChoice, computerChoice);
+        endRound();
+    }
 }
 
-function playRound() {
-    computerSelection = getComputerChoice();
+function checkWinner(playerChoice, computerChoice) {
+    if (playerChoice == computerChoice) {
+        // Tie
+    } else if (
+        (playerChoice == "rock" && computerChoice == "scissors") || 
+        (playerChoice == "paper" && computerChoice == "rock") || 
+        (playerChoice == "scissors" && computerChoice == "paper")
+    ) {
+        // Win
+    } else if (
+        (playerChoice == "rock" && computerChoice == "paper") || 
+        (playerChoice == "paper" && computerChoice == "scissors") || 
+        (playerChoice == "scissors" && computerChoice == "rock")
+    ) {
+        // Lose
+    }
+}
+
+function endRound() {
+    roundOver = true;
+}
+
+// When Next Round clicked
+function newRound() {
 
 }
 
-// Output computer choice (temp)
-console.log(getComputerChoice());
+
 
 
 // Round - playerSelection and computerSelection
