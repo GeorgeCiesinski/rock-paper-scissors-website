@@ -4,6 +4,9 @@
 .header, .instructions, .contenders {
   text-align: center; }
 
+.header {
+  margin-bottom: 0; }
+
 .rps {
   display: flex;
   flex-direction: column; }

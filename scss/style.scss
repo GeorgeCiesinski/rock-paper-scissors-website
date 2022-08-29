@@ -6,6 +6,10 @@
     text-align: center;
 }
 
+.header {
+    margin-bottom: 0;
+}
+
 .rps {
     display: flex;
     flex-direction: column;
@@ -15,7 +19,6 @@
     padding: 0 20vw;
     display: flex;
     justify-content: space-around;
-    // align-items: center;
 }
 
 .round {
