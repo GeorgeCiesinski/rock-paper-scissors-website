@@ -66,7 +66,14 @@
     height: 20vw;
     max-width: 180px;
     max-height: 180px;
-    border: 2px solid black;
+}
+
+#player-selection, #computer-selection {
+    width: 20vw;
+    height: 20vw;
+    max-width: 180px;
+    max-height: 180px;
+    border: 2px solid grey;
     border-radius: 10px;
 }
 

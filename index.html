@@ -38,16 +38,14 @@
             </button>
         </div>
         <!--Blank icons waiting for player selection and computer selection (rapidly changing icons)-->
-        <h2 class="contenders">
-            The contenders: 
-        </h2>
         <div class="rps-selections">
             <div class="side">
+                <h2 class="contenders">Player</h2>
                 <div class="selection">
-
+                    <img id="player-selection" src="images/transparent.png">
                 </div>
                 <div class="score">
-                    <h3>Player Score:</h3>
+                    <h3>Score:</h3>
                     <h3 id="player-score">0</h3>
                 </div>
             </div>
@@ -55,18 +53,19 @@
                 vs
             </h3>
             <div class="side">
+                <h2 class="contenders">Computer</h2>
                 <div class="selection">
-
+                    <img id="computer-selection" src="images/transparent.png">
                 </div>
                 <div class="score">
-                    <h3>Computer Score:</h3>
+                    <h3>Score:</h3>
                     <h3 id="computer-score">0</h3>
                 </div>
             </div>
         </div>
         <div class="game-controls">
             <button id="next-round">Next Round</button>
-            <button id="reset">Reset Score</button>
+            <button id="reset">New Game</button>
         </div>
     </div>
     <!-- Load script after page load -->
