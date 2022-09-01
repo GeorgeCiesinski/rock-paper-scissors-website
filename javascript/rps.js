@@ -52,9 +52,8 @@ function makePlayerSelection(playerChoice) {
     }
 }
 
-function updatePlayerIcon(playerChoice) {
-    document.getElementById("player-selection").src = "images/" + playerChoice + ".png";
-}
+// Update player selection image with selected option
+let updatePlayerIcon = (playerChoice) => document.getElementById("player-selection").src = "images/" + playerChoice + ".png";
 
 // Determine the winner and alter score
 function checkWinner(playerChoice, computerChoice) {
