@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/99b64d7ede.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <h1 class="header">Rock Paper Scissors</h1>
@@ -14,13 +15,16 @@
         <!--Instructions-->
         <div class="instructions">
             <p>
-                You know the rules.
+                Thee knoweth the rules:
+            </p>
+            <p>
+                At the endeth of each round, selecteth "next round".
             </p>
         </div>
         <div class="round">
             <h2>Round: </h2>
             <div class="ratio">
-                <h2 id="current-round">1</h2>
+                <h2 id="current-round"></h2>
                 <h2>/ 5</h2>
             </div>
             <div class="round-winner"></div>
@@ -49,7 +53,7 @@
                     <h3 id="player-score">0</h3>
                 </div>
             </div>
-            <h3>
+            <h3 id="vs-space">
                 vs
             </h3>
             <div class="side">

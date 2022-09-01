@@ -1,11 +1,13 @@
-// Rock Paper Scissors
-
-let gameOver = false;
-let roundOver = false;  // Toggles if round ends
+// Round and Score
 let currentRound = 1;  // Start from round 1
 let playerScore = 0;
 let computerScore = 0;
+
+// Toggles
+let gameOver = false;  // Toggles end game state
+let roundOver = false;  // Toggles if round ends
 let tieGame = false;  // Toggles if round ties
+
 let computerChoice;  // Global computer choice variable
 
 // Get Buttons
@@ -15,7 +17,12 @@ let btnScissors = document.getElementById("scissors");
 let btnNext = document.getElementById("next-round");
 let btnReset = document.getElementById("reset");
 
-// Add event listeners
+// Get Elements
+let playerScoreEl = document.getElementById("player-score");
+let computerScoreEl = document.getElementById("computer-score");
+let vsEl = document.getElementById("vs-space");
+
+// Add event listeners to buttons
 btnRock.addEventListener("click", makePlayerSelection.bind(this, "rock"));
 btnPaper.addEventListener("click", makePlayerSelection.bind(this, "paper"));
 btnScissors.addEventListener("click", makePlayerSelection.bind(this, "scissors"));   
@@ -52,24 +59,33 @@ function updatePlayerIcon(playerChoice) {
 // Determine the winner and alter score
 function checkWinner(playerChoice, computerChoice) {
     if (playerChoice == computerChoice) {
-        console.log("The game is a tie!");
         tieGame = true;
-    } else if (
+        vsEl.innerHTML = "Tied";
+    } else if (  // Player Wins
         (playerChoice == "rock" && computerChoice == "scissors") || 
         (playerChoice == "paper" && computerChoice == "rock") || 
         (playerChoice == "scissors" && computerChoice == "paper")
     ) {
-        console.log("Player won!");
         playerScore += 1;
-        document.getElementById("player-score").innerHTML = playerScore;
-    } else if (
+        playerScoreEl.innerHTML = playerScore;
+        vsEl.innerHTML = '<i class="fa-solid fa-2x fa-hand-point-left"></i>';
+    } else if (  // Computer Wins
         (playerChoice == "rock" && computerChoice == "paper") || 
         (playerChoice == "paper" && computerChoice == "scissors") || 
         (playerChoice == "scissors" && computerChoice == "rock")
     ) {
-        console.log("Player Lost!");
         computerScore += 1;
-        document.getElementById("computer-score").innerHTML = computerScore;
+        computerScoreEl.innerHTML = computerScore;
+        vsEl.innerHTML = '<i class="fa-solid fa-2x fa-hand-point-right"></i>';
+    }
+
+    changeNextButton();
+}
+
+function changeNextButton() {
+    btnNext.classList.add("bold-button");
+    if (currentRound >= 5) {
+        btnNext.innerHTML = "Result";
     }
 }
 
@@ -90,9 +106,11 @@ function nextRound() {
     } else if (tieGame) {
         tieGame = false;
         roundOver = false;
-    } else {
-        console.log("The round is not over yet, plebian!");
+        document.getElementById("player-selection").src = "images/transparent.png";
     }
+
+    vsEl.innerHTML = "vs";
+    btnNext.classList.remove("bold-button");
 }
 
 function endGame() {
@@ -109,13 +127,15 @@ function endGame() {
 function reset() {
     console.log("Reset game.");
     playerScore = 0;  // Reset Scores
-    document.getElementById("player-score").innerHTML = playerScore;
+    playerScoreEl.innerHTML = playerScore;
     computerScore = 0;
-    document.getElementById("computer-score").innerHTML = computerScore;
+    computerScoreEl.innerHTML = computerScore;
     document.getElementById("current-round").innerHTML = 1;  // Reset Rounds
+    currentRound = 1;
     roundOver = false;
     gameOver = false;
     document.getElementById("player-selection").src = "images/transparent.png";  // Reset player selection image
+    btnNext.innerHTML = "Next Round";
 }
 
 let computerImage = 1;
@@ -137,5 +157,5 @@ function rotateComputerImages() {
     }
 }
 
-// Rotate images per interval
-setInterval(rotateComputerImages, 100);
+document.getElementById("current-round").innerHTML = currentRound;  // Update page with current round
+setInterval(rotateComputerImages, 100);  // Rotate images per interval
