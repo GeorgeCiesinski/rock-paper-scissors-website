@@ -83,7 +83,7 @@ function checkWinner(playerChoice, computerChoice) {
 
 function changeNextButton() {
     btnNext.classList.add("bold-button");
-    if (currentRound >= 5) {
+    if (currentRound >= 5 && playerScore + computerScore == 5) {
         btnNext.innerHTML = "Result";
     }
 }
